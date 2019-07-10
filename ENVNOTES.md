@@ -2,32 +2,36 @@
 
 ## Statistics: Difference between 1 & 2 branch architectures
 
-- Ultsys user database ETL to local database instance: writing concurrently to 2 tables.
-- Processed: 3.324M records or approximately 4.5GB.
-- 1 Branches: 1 user query and 1 loop through the 3.324M records. 
-- 2 Branches: 1 user query and 2 loops through the 3.324M records (6.648M records).
+- Ultsys user database ETL to local database instance: writing concurrently to 2 tables.  
+- Processed: 3.324M records or approximately 4.5GB.  
+- 1 Branches: 1 user query and 1 loop through the 3.324M records.   
+- 2 Branches: 1 user query and 2 loops through the 3.324M records (6.648M records).  
 
 ### Statistics for ETL of 3,324,305 rows of Ultsys user data
 
 ### 1 BRANCH
 
-- Total time: 297.342837 secs (4 mins 57.3 secs).
-- Stage 1: 297.122859 secs (4 mins 57.1 secs) : sent 4,451,661,716 (4.452 GB).
-- Stage 2: 290.869976 secs (4 mins 50.9 secs) : recd 4,451,661,716 (4.452 GB): sent 681,690,227 (681.7 MB).
-- Stage 3:
-    - Writer 1: 207.586308 secs (3 mins 27.6 secs) : recd 681,690,227 (681.7 MB).
-    - Writer 2: 238.688619 secs (3 mins 58.7 secs) : recd 681,690,227 (681.7 MB).
-- Data not utilized: 3.770GB.
+- Total time: 297.342837 secs (4 mins 57.3 secs).  
+- Stage 1: 297.122859 secs (4 mins 57.1 secs) : sent 4,451,661,716 (4.452 GB).  
+- Stage 2: 290.869976 secs (4 mins 50.9 secs) : recd 4,451,661,716 (4.452 GB): sent 681,690,227 (681.7 MB).  
+- Stage 3:  
+    - Writer 1: 207.586308 secs (3 mins 27.6 secs) : recd 681,690,227 (681.7 MB).  
+    - Writer 2: 238.688619 secs (3 mins 58.7 secs) : recd 681,690,227 (681.7 MB).  
+- Data not utilized: 3.770GB.  
 
 ### 2 Branches
 
-- Total time: 291.1173964 secs (4 mins 51 secs).
-- Stage 1: 290.901398 secs (4 mins 50.9 secs) : sent 4,451,661,715 (4.452 GB).
-- Stage 2: 285.218528 secs (4 mins 45.2 secs) : recd 4,451,661,715 (4.452 GB): sent 681,690,227 (681.7 MB).
-- Satge 3:
-    - Writer 1: 205.752285 secs (3 mins 25.8 secs) : recd 681,690,227 (681.7 MB).
-    - Writer 2: 199.903369 secs (3 mins 19.9 secs) : recd 681,690,227 (681.7 MB).
-- Data not utilized: 3.770GB.
+- Total time: 721.6150995 secs (12 mins 1.62 secs).  
+- Stage 1:   
+    - Reader 1: 719.352100 secs (11 mins 59.4 secs) : sent 4,451,705,503 (4.452 MB).  
+    - Reader 2: 721.214085 secs (12 mins 1.21 secs) : sent 4,451,705,503 (4.452 MB). 
+- Stage 2:
+    - Transformer 1: 719.098156 secs (11 mins 59.1 secs) : recd 4,451,705,503 : sent 360,131,723 (4.452 MB/360.1 MB).  
+    - Transformer 2: 720.904329 secs (12 mins 0.90 secs) : recd 4,451,705,503 : sent 331,473,313 (4.452 MB/331.5 MB).  
+- Satge 3:  
+    - Writer 1: 341.293178 secs (5 mins 28.5 secs) : recd 360,131,723 (360.1 MB).  
+    - Writer 2: 328.535333 secs (5 mins 23.8 secs) : recd 331,473,313 (331.5 MB).  
+- Data not utilized: 3.760GB.  
 
 ## Environment variables:
 
@@ -138,5 +142,4 @@ util.Database{
     PassWord: "Password",
     Database: "ultsys",
     ParseTime: true}
-
 ```
