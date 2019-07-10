@@ -10,15 +10,17 @@
 ### Statistics for ETL of 3,324,305 rows of Ultsys user data
 
 ### 1 BRANCH
--Total time: 297.342837 secs (4 mins 57.3 secs).
--Stage 1: 297.122859 secs (4 mins 57.1 secs) : sent 4,451,661,716 (4.452 GB).
--Stage 2: 290.869976 secs (4 mins 50.9 secs) : recd 4,451,661,716 (4.452 GB): sent 681,690,227 (681.7 MB).
--Stage 3:
+
+-vTotal time: 297.342837 secs (4 mins 57.3 secs).
+-vStage 1: 297.122859 secs (4 mins 57.1 secs) : sent 4,451,661,716 (4.452 GB).
+-vStage 2: 290.869976 secs (4 mins 50.9 secs) : recd 4,451,661,716 (4.452 GB): sent 681,690,227 (681.7 MB).
+- Stage 3:
     - Writer 1: 207.586308 secs (3 mins 27.6 secs) : recd 681,690,227 (681.7 MB).
     - Writer 2: 238.688619 secs (3 mins 58.7 secs) : recd 681,690,227 (681.7 MB).
 - Data not utilized: 3.770GB.
 
 ### 2 Branches
+
 - Total time: 291.1173964 secs (4 mins 51 secs).
 - Stage 1: 290.901398 secs (4 mins 50.9 secs) : sent 4,451,661,715 (4.452 GB).
 - Stage 2: 285.218528 secs (4 mins 45.2 secs) : recd 4,451,661,715 (4.452 GB): sent 681,690,227 (681.7 MB).
