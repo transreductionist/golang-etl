@@ -1,2 +1,2 @@
 # golang-etl
-Example Golang ETL pipeline (Ratchet)
+Example Golang ETL pipeline (Refactor of Ratchet)
